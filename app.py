@@ -37,3 +37,25 @@ def index():
 @app.route('/download')
 def download():
 	return send_file('dataset.csv', as_attachment=True)
+
+@app.route('/eu', methods=['GET', 'POST'])
+def eu():
+	v_figsize=(9, 6.7)
+	v_kind = 'pie'
+
+	if request.method == 'POST':
+		if request.form['button'] == 'H. stabiņu':
+			v_kind = 'barh'
+		elif request.form['button'] == 'V. stabiņu':
+			v_figsize=(9, 9)
+			v_kind = 'bar'
+
+	ploo = df[df['Region'] == 'European Union'].plot(figsize=v_figsize, legend=False, kind=v_kind, xlabel='', y='Life_expectancy', ylabel='', title='Dzīves ilgums pēc reģiona')
+	plt.tight_layout()
+
+	chart = ploo.get_figure()
+	chart.savefig('static/image/chart.png')
+	return render_template('eu.html')
+
+if __name__ == '__main__':
+	app.run(debug=True)
