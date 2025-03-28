@@ -1,1 +1,8 @@
+Lai izmantotu venv:
+
+.venv\Scripts\activate
+
+Palaist Flask aplikaciju:
+
+flask --app app run
 
