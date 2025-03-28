@@ -1,1 +1,42 @@
+<html>
+	<head>
+		<style>
+			a {
+				color: yellow;
+			}
+
+			body {
+				background-color: blue;
+				color: yellow;
+				font-family: sans-serif;
+			}
+
+			input {
+				background-color: darkblue;
+				color: yellow;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form action="/" method="GET">
+			<input type="submit" name="button" value="Atpakaļ">
+		</form>
+
+		<center>
+			<img src="static/image/chart.png">
+			<p>Diagramma:</p>
+
+			<form action="/eu" method="POST">
+				<input type="submit" name="button" value="H. stabiņu">
+				<input type="submit" name="button" value="V. stabiņu">
+				<input type="submit" name="button" value="Sektoru">
+			</form>
+
+			<p>Lejupielādēt CSV:</p>
+
+                        <a href="/download">dataset.csv</a>
+		</center>
+	</body>
+</html>
 
